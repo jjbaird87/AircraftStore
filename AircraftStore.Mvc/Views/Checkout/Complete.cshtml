@@ -1,0 +1,18 @@
+﻿@model int
+@{
+    ViewBag.Title = "Checkout Complete";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Checkout Complete
+            </h1>
+            
+            <p>Thanks for your order! Your order number is: @Model</p>
+            <p>
+                How about shopping for some more Aircraft in our @Html.ActionLink("store", "Browse", "Store", new {Id=1}, null)
+            </p>
+        </div>
+    </div>
+</div>

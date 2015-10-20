@@ -1,0 +1,11 @@
+﻿@model IEnumerable<AircraftStore.Dal.Models.AircraftType>
+        <div class="col-md-3 col-sm-4 sidebar">
+            <ul class="nav nav-stacked nav-pills">
+                @foreach (var type in Model)
+                {
+                    <li>
+                        @Html.ActionLink(type.Name, "Browse", "Store", new { Id = type.Id }, null)            
+                    </li>
+                }
+            </ul>
+        </div>

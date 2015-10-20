@@ -1,0 +1,40 @@
+﻿@model AircraftStore.Dal.Models.AircraftType
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<div class="container">
+    <div class="row">
+        @{ Html.RenderAction("TypeMenu", "Store"); }
+        <div class="col-md-9 col-sm-8">
+            <h1 class="page-header">
+                Store
+                <small>@Model.Name</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li class="active">Store</li>
+            </ol>
+            @foreach (var ac in Model.Aircraft)
+            {
+                <div class="row">
+                    <div class="col-md-7">
+                        <a href="@Url.Action("Details",new { id = ac.Id })">
+                            <img  style="height: 200px; width: 350px" alt="@ac.Name" src="@ac.PhotoUrl" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="col-md-5">
+                        <a href="@Url.Action("Details",new { id = ac.Id })"> <h3> @ac.Name</h3></a>
+                        <h4><strong>Manufacturer:</strong> @ac.Manufacturer.Name</h4>
+                        <p><strong>Price:</strong> $@ac.Price Million</p>                        
+                        <a href="@Url.Action("AddToCart", "ShoppingCart",  new { id = ac.Id }, "")" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+                <hr>
+            }
+        </div>
+    </div>
+</div>
